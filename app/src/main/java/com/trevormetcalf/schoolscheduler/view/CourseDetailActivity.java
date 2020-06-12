@@ -53,7 +53,6 @@ import java.util.List;
  */
 
 public class CourseDetailActivity extends AppCompatActivity {
-    private static final String TAG = "CourseDetailActivity";
     // Define String Extras.
     public static final String EXTRA_COURSE_ID =
             "com.trevormetcalf.schoolscheduler.EXTRA_COURSE_ID";
@@ -352,7 +351,6 @@ public class CourseDetailActivity extends AppCompatActivity {
                         RequestStatusCode.SET_COURSE_END_NOTIFICATION, intentEnd, PendingIntent.FLAG_ONE_SHOT);
                 AlarmManager alarmManagerEnd = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 long triggerEnd = currentCourse.getDateEnd().getTime();
-                Log.d(TAG, "course end: " + triggerEnd);
                 alarmManagerEnd.set(AlarmManager.RTC_WAKEUP, triggerEnd, senderEnd);
                 Toast.makeText(this, "Notification set.", Toast.LENGTH_SHORT).show();
                 break;
